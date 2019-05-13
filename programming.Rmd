@@ -1,0 +1,19 @@
+---
+---
+  
+
+<link rel="stylesheet" href="settings.css">
+
+<img src="https://imgs.xkcd.com/comics/ai_research.png"  style="width:25%; margin-right: 0px; margin-top: 8px;" align="right">
+
+
+# Programming
+    
+Programming has been a hobby of mine since for a few years now. I just can't resist a good puzzle.
+Click below to see examples of stuff I've been up to.
+      
+### A basic [genetic algorithm](GA.html) to tackle the travelling salesman problem.
+
+So this is my most recent projectette that kept me off the streets for a few days. This basic GA uses the crossover, mutation and selection operators to find the shortest route between 100 cities, each consisting of an x/y coordinate. My specific instantiation still has much room for improvement and not only by tuning hyper parameters. For example, the selection method is greedy: it simply uses the 2 most fit chromosomes to be the parents of the next generation, a stochastic selection method would prevent convergence to a local minimum. Furthermore, the crossover algorithm has only 1 crossover point, implementing more would improve diversity in the population. I'm sure there's more, but this is a hobby :-).
+      
+      

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Robert E. Camstra</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="programming.html">Programming</a>
+</li>
+<li>
+  <a href="teaching.html">Teaching</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:r.e.camstra@umail.leidenuniv.nl">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/rcam01">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/RobCamstra">
+    <span class="fa fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/robcamstra">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="intro" class="section level2">
+<h2>Intro</h2>
+<p>A basic genetic algorithm that tackles the travelling salesman problem (TSP). In short, it searches for the shortest distance between however many cities you have selected in the setup. Each city is defined by an X,Y coordinate.</p>
+<p>Data was taken from Kaggle</p>
+</div>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<pre class="python"><code>%matplotlib inline</code></pre>
+<pre class="python"><code>import numpy as np
+import matplotlib.pyplot as plt
+from scipy.spatial import distance
+import random
+import math</code></pre>
+<pre class="python"><code>np.set_printoptions(suppress=True, linewidth = 300) # Suppress scientific notation</code></pre>
+<div id="parameters" class="section level3">
+<h3>Parameters</h3>
+<pre class="python"><code>my_data = np.loadtxt(&#39;data/cities.csv&#39;, skiprows = 1, delimiter = &#39;,&#39;)
+nums = 100  # len(my_data) # number of rows from my_data to use
+mutprob = 80  # mutation probability
+swapprob = .05  # probability of an individual element of mutating
+my_data = my_data[0:nums,:] 
+its = 500  # number of generations
+popsize = 100  # population size</code></pre>
+</div>
+<div id="functions" class="section level3">
+<h3>Functions</h3>
+<pre class="python"><code>def mutate_swap2(route, nums, swapprob):
+    
+    # in: a route composed of 2 vectors
+    # out: a new route composed of 2 vectors
+    
+    routenew = np.copy(route[:,0])
+    mutelem = np.random.choice([0,1], size = nums, p = [1-swapprob, swapprob])  # array containing elems to mutate
+    idx1 = np.where(mutelem == 1)  # indeces of 1&#39;s
+    b = routenew[idx1]  # numbers at indices -&gt; b
+    np.random.shuffle(b)  # shuffle b
+    routenew[idx1] = b  # set numbers in route ad indeces equal to b
+    
+    # Make route thing to return
+    route2 = routenew[1:]
+    route2 = np.append(route2, routenew[0])
+
+    return(routenew.astype(int), route2.astype(int)) 
+    </code></pre>
+<pre class="python"><code>def crossover(parent1, parent2):
+    
+    # in: 2 parents
+    # out: 2 offspring
+    
+    cutoff = random.randint(0,nums)  # random cutoff point
+    
+    parents1 = parent1[:,0]
+    parents2 = parent2[:,0]
+    
+    offspring1 = np.full(len(parents1), -1).astype(int)  # create empty array
+    offspring2 = np.full(len(parents2), -1).astype(int)  # create empty array
+       
+    offspring1[0:cutoff] = parents1[0:cutoff]  # stick parent 1 into first part
+    offspring1[cutoff:] = parents2[~np.in1d(parents2,offspring1)]  # stick whatever legal numbers remain into the second
+                                                                   # part of offspring, but in the order that they appear
+                                                                   # in parent 2
+                
+    offspring2[0:cutoff] = parents2[0:cutoff]  # stick parent 2 into first part
+    offspring2[cutoff:] = parents1[~np.in1d(parents1,offspring2)]  # stick whatever legal numbers remain into the second
+                                                                   # part of offspring, but in the order that they appear
+                                                                   # in parent 1
+    
+    # And now for some truly shoddy programming, the lines below generate 2 offspring from the above.
+    offspring1b = offspring1[1:]
+    offspring1b = np.append(offspring1b, offspring1[0])
+    offspring2b = offspring2[1:]
+    offspring2b = np.append(offspring2b, offspring2[0])
+    offspring1c = np.column_stack((offspring1,offspring1b))
+    offspring2c = np.column_stack((offspring2,offspring2b))
+    
+    return(offspring1c, offspring2c)
+    </code></pre>
+</div>
+</div>
+<div id="main-loops" class="section level2">
+<h2>Main loops</h2>
+<div id="monte-carlo" class="section level3">
+<h3>Monte Carlo</h3>
+<p>Randomly chooses a route, checks fitness, keeps it if it is better than previous route, randomly choose new route.</p>
+<pre class="python"><code>old_distance = 1000000000000
+my_dist = 0
+distmat = np.zeros((its, 2))
+
+for j in range(0,its):
+    # makes 2 vectors a and b, where b is the same as a, other than that it is shifted along 1, so that
+    # b[0] = a[1], a[0] is added to the end of b. In this way, the vectors form paths along which santa
+    # can travel.
+    a = np.arange(nums)
+    np.random.shuffle(a)
+    b = a[1:]
+    b = np.append(b, a[0])
+    route = np.column_stack((a,b))
+    
+    # take diagonal sum of euclidian distmat
+    my_dist = np.trace(distance.cdist(my_data[a, 1:3], my_data[b, 1:3], &#39;euclidean&#39;)) 
+    
+    # If new distance is better than old distance, keep new distance and route
+    # else keep old distance and route
+    if my_dist &lt; old_distance:
+        old_distance = my_dist
+        best_route = route        
+    else:
+         pass
+
+    distmat[j,0] = j
+    distmat[j,1] = old_distance
+    my_dist = 0
+
+routedata = my_data[best_route[:,0]]    </code></pre>
+</div>
+<div id="plots" class="section level3">
+<h3>Plots</h3>
+<div id="plot-best-route" class="section level4">
+<h4>Plot best route</h4>
+<pre class="python"><code>x = routedata[:,1]
+y = routedata[:,2]
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, y, color = &#39;gray&#39;)
+ax.scatter(x,y)
+ax.set(title = &quot;MC: best route&quot;, ylabel = &#39;Y&#39;, xlabel = &#39; X&#39;)
+plt.show()</code></pre>
+<div class="figure">
+<img src="output_15_0.png" alt="png" />
+<p class="caption">png</p>
+</div>
+</div>
+<div id="plot-performance-over-generations" class="section level4">
+<h4>Plot performance over generations</h4>
+<pre class="python"><code>x = distmat[:,0]
+y = distmat[:,1]
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, y)
+ax.set(title =&quot;MC: distance over generations&quot;, ylabel = &#39;distance&#39;, xlabel = &#39; generation&#39;)
+plt.show()
+print(&#39;Shortest distance = &#39;, min(distmat[:,1]))</code></pre>
+<div class="figure">
+<img src="output_17_0.png" alt="png" />
+<p class="caption">png</p>
+</div>
+<pre><code>Shortest distance =  185333.70354853105</code></pre>
+</div>
+</div>
+<div id="mut-co-elitist-selection" class="section level3">
+<h3>MUT + CO + elitist selection</h3>
+<p>Using crossover, mutation and (elitist) selection to find the best elements in the population.</p>
+<pre class="python"><code># make parent 1
+a = np.arange(nums)
+np.random.shuffle(a)
+b = a[1:]
+b = np.append(b, a[0])
+parent1 = np.column_stack((a,b))
+
+# make parent 2
+c = np.arange(nums)
+np.random.shuffle(c)
+d = c[1:]
+d = np.append(d, c[0])
+parent2 = np.column_stack((c,d))
+
+# make empty arrays
+offspring = np.zeros((nums,popsize))
+optdistmat = np.zeros((its,2))
+
+
+for i in range(0, its):
+    
+    distmat = np.zeros((4,1))  # set to zero, or distances from earlier generations will be added to new generation
+
+    offspring1, offspring2 = crossover(parent1, parent2)  # 2 parents produce 2 offspring using crossover
+
+    # Takes sum of diagonal of euclidian distance matrix = total distance
+    distmat[0] = np.trace(distance.cdist(my_data[parent1[:,0], 1:3], my_data[parent1[:,1], 1:3], &#39;euclidean&#39;))
+    distmat[1] = np.trace(distance.cdist(my_data[parent2[:,0], 1:3], my_data[parent2[:,1], 1:3], &#39;euclidean&#39;))
+    distmat[2] = np.trace(distance.cdist(my_data[offspring1[:,0], 1:3], my_data[offspring1[:,1], 1:3], &#39;euclidean&#39;))
+    distmat[3] = np.trace(distance.cdist(my_data[offspring2[:,0], 1:3], my_data[offspring2[:,1], 1:3], &#39;euclidean&#39;))
+    
+    best = np.argmin((distmat))  # Index of shortes distance out of 2 parents &amp; 2 offspring
+   
+    # Dict to link indices to route
+    whatdict = {
+        0:parent1,
+        1:parent2,
+        2:offspring1,
+        3:offspring2
+    }
+    
+    parent = whatdict[best]  # best of all parents/offsprings offspring becomes new parent
+
+    distmat = np.zeros((popsize,1))  # Reset to zero
+    
+    # Next, make a boolean vector to indicate whether a child is to be mutated (1) or not (0).
+    choice = np.random.choice(np.arange(1,100),popsize)  # Vector of popsize numbers (1 - 100)
+    mutate = choice &lt;= mutprob  # Boolean vector, 1 if choice &lt;= mutprob, else 0
+    mutate = np.repeat(mutate, 2)  # Repeat so that the next for loop iterates across every element in mutate
+    
+    # Array containing popsize copies of parent
+    offspring = np.repeat(parent, popsize, axis = 0).reshape(nums, popsize*2)
+       
+    # For every unit in population (which is initially just a copy of the best of 2 parents and 2 offspring)
+    # See if you&#39;re going to mutate it
+    # If so, replace unit with mutated copy, else: leave it
+    for j in range(0, len(mutate),2):
+        if mutate[j] == True:
+            offspring[:, j], offspring[:, j+1] = mutate_swap2(parent, nums, swapprob)
+        else:
+             pass
+    
+    distmat = np.zeros((popsize,1))  # reset distance matrix to zero
+    
+    # Stick distances in array distmat
+    for k in range(0, popsize):
+        distmat[k] = np.trace(distance.cdist(my_data[offspring[:,k*2], 1:3], 
+                                             my_data[offspring[:,k*2+1], 1:3], &#39;euclidean&#39;))
+    
+    # Indices of best route
+    best = np.argmin((distmat))
+    bestindices = [best*2, best*2+1]  
+       
+    # Best offspring becomes new parent1    
+    parent1 = offspring[:, bestindices].astype(int)  
+    
+    # Second best offspring becomes parent 2
+    secondbest = np.argpartition(distmat, 2, axis = 0)[1,0]
+    secondbestindices = [secondbest*2, secondbest*2+1]
+    parent2 = offspring[:, secondbestindices].astype(int)
+    
+    # Stick data in array for plotting
+    optdistmat[i,0] = i
+    optdistmat[i,1] = distmat[best]
+    
+    # Reset distance to 0
+    my_dist = 0
+    
+routedata = my_data[parent1[:,0]]
+</code></pre>
+<pre class="python"><code>x = routedata[:,1]
+y = routedata[:,2]
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, y, color = &#39;gray&#39;)
+ax.scatter(x,y, color = &#39;blue&#39;)
+ax.set(title = &quot;Mut + CO: best route&quot;, ylabel = &#39;y&#39;, xlabel = &#39; x&#39;)
+plt.show()</code></pre>
+<div class="figure">
+<img src="output_20_0.png" alt="png" />
+<p class="caption">png</p>
+</div>
+<pre class="python"><code>x = optdistmat[:,0]
+y = optdistmat[:,1]
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, y)
+ax.set(title = &quot;Mut + CO: distance over generations&quot;, ylabel = &#39;distance&#39;, xlabel = &#39;generation&#39;)
+plt.show()
+print(&#39;Shortest distance is&#39;, min(optdistmat[:,1]))</code></pre>
+<div class="figure">
+<img src="output_21_0.png" alt="png" />
+<p class="caption">png</p>
+</div>
+<pre><code>Shortest distance is 64563.85015021321</code></pre>
+</div>
+</div>
+<div id="performance-tests" class="section level2">
+<h2>Performance tests</h2>
+<pre class="python"><code>runs = 20</code></pre>
+<div id="monte-carlo-1" class="section level3">
+<h3>Monte Carlo</h3>
+<pre class="python"><code>def main_MC():
+    old_distance = 1000000000000
+    my_dist = 0
+    distmat = np.zeros((its, 2))
+
+    for j in range(0,its):
+        # makes 2 vectors a and b, where b is the same as a, other than that it is shifted along 1, so that
+        # b[0] = a[1], a[0] is added to the end of b. In this way, the vectors form paths along which santa
+        # can travel.
+        a = np.arange(nums)
+        np.random.shuffle(a)
+        b = a[1:]
+        b = np.append(b, a[0])
+        route = np.column_stack((a,b))
+
+        # take diagonal sum of euclidian distmat
+        my_dist = np.trace(distance.cdist(my_data[a, 1:3], my_data[b, 1:3], &#39;euclidean&#39;)) 
+
+        # If new distance is better than old distance, keep new distance and route
+        # else keep old distance and route
+        if my_dist &lt; old_distance:
+            old_distance = my_dist
+            best_route = route        
+        else:
+             pass
+
+        distmat[j,0] = j
+        distmat[j,1] = old_distance
+        my_dist = 0
+
+    return(min(distmat[:,1]))</code></pre>
+</div>
+<div id="mutation-crossover" class="section level3">
+<h3>Mutation + Crossover</h3>
+<pre class="python"><code>def main_mutco():
+
+    # make parent 1
+    a = np.arange(nums)
+    np.random.shuffle(a)
+    b = a[1:]
+    b = np.append(b, a[0])
+    parent1 = np.column_stack((a,b))
+
+    # make parent 2
+    c = np.arange(nums)
+    np.random.shuffle(c)
+    d = c[1:]
+    d = np.append(d, c[0])
+    parent2 = np.column_stack((c,d))
+
+    # make empty arrays
+    offspring = np.zeros((nums,popsize))
+    optdistmat = np.zeros((its,2))
+
+
+    for i in range(0, its):
+
+        distmat = np.zeros((4,1))  # set to zero, or distances from earlier generations will be added to new generation
+
+        offspring1, offspring2 = crossover(parent1, parent2)  # 2 parents produce 2 offspring using crossover
+
+        # Takes sum of diagonal of euclidian distance matrix = total distance
+        distmat[0] = np.trace(distance.cdist(my_data[parent1[:,0], 1:3], my_data[parent1[:,1], 1:3], &#39;euclidean&#39;))
+        distmat[1] = np.trace(distance.cdist(my_data[parent2[:,0], 1:3], my_data[parent2[:,1], 1:3], &#39;euclidean&#39;))
+        distmat[2] = np.trace(distance.cdist(my_data[offspring1[:,0], 1:3], my_data[offspring1[:,1], 1:3], &#39;euclidean&#39;))
+        distmat[3] = np.trace(distance.cdist(my_data[offspring2[:,0], 1:3], my_data[offspring2[:,1], 1:3], &#39;euclidean&#39;))
+
+        best = np.argmin((distmat))  # Index of shortes distance out of 2 parents &amp; 2 offspring
+
+        # Dict to link indices to route
+        whatdict = {
+            0:parent1,
+            1:parent2,
+            2:offspring1,
+            3:offspring2
+        }
+
+        parent = whatdict[best]  # best of all parents/offsprings offspring becomes new parent
+
+        distmat = np.zeros((popsize,1))  # Reset to zero
+
+        # Next, make a boolean vector to indicate whether a child is to be mutated (1) or not (0).
+        choice = np.random.choice(np.arange(1,100),popsize)  # Vector of popsize numbers (1 - 100)
+        mutate = choice &lt;= mutprob  # Boolean vector, 1 if choice &lt;= mutprob, else 0
+        mutate = np.repeat(mutate, 2)  # Repeat so that the next for loop iterates across every element in mutate
+
+        # Array containing popsize copies of parent
+        offspring = np.repeat(parent, popsize, axis = 0).reshape(nums, popsize*2)
+
+        # For every unit in population (which is initially just a copy of the best of 2 parents and 2 offspring)
+        # See if you&#39;re going to mutate it
+        # If so, replace unit with mutated copy, else: leave it
+        for j in range(0, len(mutate),2):
+            if mutate[j] == True:
+                offspring[:, j], offspring[:, j+1] = mutate_swap2(parent, nums, swapprob)
+            else:
+                 pass
+
+        distmat = np.zeros((popsize,1))  # reset distance matrix to zero
+
+        # Stick distances in array distmat
+        for k in range(0, popsize):
+            distmat[k] = np.trace(distance.cdist(my_data[offspring[:,k*2], 1:3], 
+                                                 my_data[offspring[:,k*2+1], 1:3], &#39;euclidean&#39;))
+
+        # Indices of best route
+        best = np.argmin((distmat))
+        bestindices = [best*2, best*2+1]  
+
+        # Best offspring becomes new parent1    
+        parent1 = offspring[:, bestindices].astype(int)  
+
+        # Second best offspring becomes parent 2
+        secondbest = np.argpartition(distmat, 2, axis = 0)[1,0]
+        secondbestindices = [secondbest*2, secondbest*2+1]
+        parent2 = offspring[:, secondbestindices].astype(int)
+
+        # Stick data in array for plotting
+        optdistmat[i,0] = i
+        optdistmat[i,1] = distmat[best]
+
+        # Reset distance to 0
+        my_dist = 0
+        
+    return(min(optdistmat[:,1]))
+</code></pre>
+<pre class="python"><code>newarray = np.full((runs, 2), -1)
+
+for i in range(0,runs):
+    print(&#39;run&#39;, i, &#39;of&#39;, runs)
+    newarray[i,0] = main_MC()
+    newarray[i,1] = main_mutco()
+    </code></pre>
+<pre><code>run 0 of 20
+run 1 of 20
+run 2 of 20
+run 3 of 20
+run 4 of 20
+run 5 of 20
+run 6 of 20
+run 7 of 20
+run 8 of 20
+run 9 of 20
+run 10 of 20
+run 11 of 20
+run 12 of 20
+run 13 of 20
+run 14 of 20
+run 15 of 20
+run 16 of 20
+run 17 of 20
+run 18 of 20
+run 19 of 20</code></pre>
+<pre class="python"><code>MC = newarray[:,0]
+mut_CO = newarray[:,1]
+
+# means of different methods
+MC_mean = np.mean(newarray[:,0])
+mut_CO_mean = np.mean(newarray[:,1])
+
+# standard error of mean
+MC_se = np.std(newarray[:,0]/(math.sqrt(runs-1)))
+mut_CO_se = np.std(newarray[:,1])/math.sqrt(runs-1)
+
+# data
+height = [MC_mean, mut_CO_mean]
+bars = (&#39;MC&#39;, &#39;GA&#39;)
+y_pos = np.arange(len(bars))
+ 
+# Choose the height of the error bars (bars)
+yer1 = [MC_se, mut_CO_se]
+
+fig = plt.figure(figsize = (15,15))
+# Create bars
+plt.bar(y_pos, height, yerr = yer1, capsize = 50)
+ 
+# Create names on the x-axis
+plt.xticks(y_pos, bars)
+ 
+# Show graphic
+plt.show()
+
+print(&#39;Monte Carlo mean =&#39;, MC_mean,&#39;\n&#39;, &#39;Monte Carlo SE = &#39;, MC_se)
+print(&#39;GA mean = &#39;, mut_CO_mean,&#39;\n&#39;, &#39;GA SE = &#39;, mut_CO_se)
+</code></pre>
+<div class="figure">
+<img src="output_29_0.png" alt="png" />
+<p class="caption">png</p>
+</div>
+<pre><code>Monte Carlo mean = 187100.85 
+ Monte Carlo SE =  975.4432117463857
+GA mean =  64944.25 
+ GA SE =  570.4618160338441</code></pre>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

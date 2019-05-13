@@ -1,0 +1,13 @@
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 100%;
+}
+
+p {
+  margin-top: 22px;
+  line-height: 1.8;
+  font-size: 14pt;
+}

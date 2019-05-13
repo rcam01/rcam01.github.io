@@ -1,0 +1,22 @@
+name: "Robert E. Camstra"
+output_dir: "."
+navbar:
+  title: "Robert E. Camstra"
+  left:
+    - text: "Programming"
+      href: programming.html
+    - text: "Teaching"
+      href: teaching.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: mailto:r.e.camstra@umail.leidenuniv.nl
+    - icon: fa-github fa-lg
+      href: http://github.com/rcam01
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/RobCamstra
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/robcamstra
+output:
+  html_document:
+    theme: flatly
+    #css: 'styles.css'

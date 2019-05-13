@@ -1,0 +1,24 @@
+---
+---
+
+
+<link rel="stylesheet" href="settings.css">
+
+<img src="https://imgs.xkcd.com/comics/t_distribution.png" class=center style="width:65%">
+
+# Teaching
+I've been a teacher at Leiden University since 2017 and have taught a variety of first year Psychology courses. I love teaching, not only beause it's an opportunity for me to talk about stuff that interests me profoundly, but because a student exclaiming: "Oh wait, now I get it!" is a profoundly rewarding experience.
+
+* ### Teacher
+    + ##### Introduction to Research Methods and Statistics
+    + ##### Inferential Statistics
+    + ##### Experimental and Correlational Research
+    + ##### History of Psychology
+    + ##### Psychology and Science
+
+* ### Computer instructor
+    + ##### Psychometrics
+    + ##### Multivariate Data Analysis
+    + ##### Cognitive Pyschology
+    
+    
